@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .card{
+            width: 375px;
+            height: 140px;
+            background: url('https://user-gold-cdn.xitu.io/2019/9/25/16d64084117ad1da?imageView2/0/w/1280/h/960/format/webp/ignore-error/1');
+            background-size: 375px 140px;
+        }
+        .card canvas{
+            width: 375px;
+            height: 140px;
+        }
+        /* https://user-gold-cdn.xitu.io/2019/9/25/16d64084117ad1da?imageView2/0/w/1280/h/960/format/webp/ignore-error/1 */
+    </style>
+</head>
+<body>
+    <div class="card">
+        <canvas id="canvas" width="750" height="280"></canvas>
+    </div>
+</body>
+<script type="text/javascript" src="./scratchcard.js" ></script>
+<!--在head中添加js控制-->
+<script type="text/javascript">
+    //阻住页面滚动
+    window.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, {passive: false});
+
+    new ScratchCard({
+        canvas: document.getElementById('canvas'),
+        coverImg: 'https://user-gold-cdn.xitu.io/2019/9/25/16d641588f9225a1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1',
+        pixelRatio: 2,
+        doneCallback: function() {
+            console.log('done')
+        }
+    })
+</script>
+</html>
